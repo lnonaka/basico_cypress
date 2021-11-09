@@ -1,7 +1,8 @@
+<h2> Workshop EBAC introdução ao Cypress </h2>
+
 ![projeto_cypress](https://user-images.githubusercontent.com/3532030/140966806-d8f5422d-fa9c-408f-bddc-c17a6d87c6fe.gif)
 
-
-
+Funções básicas e dicas para explorar o painel de inspeção do browser, no projeto de automação consegui uma entrada e excluindo a mesma através do Cypress.
 
 <!-- npm init --yes
 npm install -D cypress@8.5.0
