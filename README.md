@@ -1,4 +1,10 @@
-npm init --yes
+
+
+
+
+
+
+<!-- npm init --yes
 npm install -D cypress@8.5.0
 
 NPM -> node package manager
@@ -11,4 +17,4 @@ npx cypress open
 
 1. Automatizar a jornada de exclusão de uma entrada OU saída
 2. Subir seu projeto para o Github e colocar um GIF da execução no README
-3. Enviar a URL para correção no link enviado na aula  Amanhã vou revisar os desafios, corrigir o exercício e responder dúvidas.
+3. Enviar a URL para correção no link enviado na aula  Amanhã vou revisar os desafios, corrigir o exercício e responder dúvidas. -->
