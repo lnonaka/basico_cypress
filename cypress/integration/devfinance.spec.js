@@ -1,36 +1,41 @@
 /// <reference types="cypress" />
 
 describe('DevFinance', () => {
+    beforeEach(() => {
+        cy.visit('https://devfinance-agilizei.netlify.app/#')
+    });
 
     it('Adicionar uma nova transação de entrada', () => {
-        cy.visit('https://devfinance-agilizei.netlify.app/#')
-
-        // entrada 01
         cy.get('a[onclick*=open]').click()
         cy.get('#description').type('Freela01')
         cy.get('#amount').type('100')
         cy.get('#date').type('2021-11-01')
         cy.contains('button', 'Salvar').click()
+        cy.get('table tbody tr').should('have.length', 1)
+    });
 
-        // remover uma transação
-        cy.get('img[onclick*=Transaction').click()
-
-        // estrada 02
+    it('Excluir uma transação da listagem' , () => {
         cy.get('a[onclick*=open]').click()
-        cy.get('#description').type('Freela02')
+        cy.get('#description').type('Freela01')
         cy.get('#amount').type('100')
-        cy.get('#date').type('2021-11-02')
+        cy.get('#date').type('2021-11-01')
         cy.contains('button', 'Salvar').click()
+        cy.get('table tbody tr').should('have.length', 1)
 
-        // saída
-        cy.get('a[onclick*=open]').click()
-        cy.get('#description').type('Gasolina')
-        cy.get('#amount').type('-220')
-        cy.get('#date').type('2021-11-03')
-        cy.contains('button', 'Salvar').click()
+        // exemplo de exclusao 1
+        cy.contains('td', 'Freela01') // a partir de um texto()
+            .parent() // voltar para o elemento pai
+            .find('img[onclick*=remove]') // depois buscar (find) um elemento específico
+            // .click()
+
+        // exemplo de exclusao 2    
+        cy.contains('td', 'Freela01')
+            .siblings() // lista os elementos irmaos
+            .children('img[onclick*=remove]')
+            .click()
 
 
-        // deve conter duas transações
-        cy.get('table tbody tr').should('have.length', 2)
+        cy.get('table tbody tr').should('have.length', 0)
+
     });
 });
